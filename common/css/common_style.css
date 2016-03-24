@@ -1,0 +1,41 @@
+@import url('http://fonts.googleapis.com/css?family=Damion');
+
+body 
+{
+	background: black;
+	color: white;
+}
+
+h1, h2
+{
+    font-family: "Damion";
+    margin: 10px;
+}
+
+maindiv
+{
+    margin-top: 20px;
+    max-width:  650px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    border: 2px solid red;
+    border-radius: 20px;  
+    margin:auto;
+}
+
+a:link
+{
+    color:aqua;
+}
+
+a:visited
+{
+    color:limegreen;
+}
+
+a:hover
+{
+    color: red;    
+}

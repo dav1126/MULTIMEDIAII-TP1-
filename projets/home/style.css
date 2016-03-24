@@ -1,2 +1,24 @@
-/*@import url("../../common/css/style.css");*/
-@import "style2.css";
+@import url("/common/css/common_style.css");
+h1
+{
+    color:aqua;
+    text-align: center;
+}
+
+h2
+{
+    color: deeppink;
+    text-align: center;
+}
+
+p
+{
+    text-indent: 15px;
+    color:yellow;
+}
+
+span.underline
+{
+    text-decoration: underline;
+    text-decoration-color:azure;   
+}

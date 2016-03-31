@@ -1,0 +1,13 @@
+@import url("../../common/css/common_style.css");
+@import url("../../common/css/normalize.min.css");
+
+h1
+{
+    color:yellow;
+    font-family: none;
+}
+
+mainDiv
+{
+    max-width: 90%;
+}

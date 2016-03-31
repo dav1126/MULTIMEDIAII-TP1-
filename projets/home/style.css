@@ -1,14 +1,18 @@
-@import url("/common/css/common_style.css");
+@import url("../../common/css/common_style.css");
+@import url("../../common/css/normalize.min.css");
 h1
 {
-    color:aqua;
+    color:white;
+    background: black;
+    mix-blend-mode: multiply;
     text-align: center;
+    margin:0;
 }
 
 h2
 {
     color: deeppink;
-    text-align: center;
+    text-align: center;    
 }
 
 p
@@ -19,6 +23,37 @@ p
 
 span.underline
 {
-    text-decoration: underline;
-    text-decoration-color:azure;   
+    color: chartreuse;
+    text-decoration: underline;  
+}
+
+img
+{
+    margin:auto;
+    width: 80%;
+    height: auto;
+    border: 5px solid hsl(225, 3%, 87%);
+    border-radius: 40px;
+    transform: skewX(-2deg);
+    margin-top:10px;
+    -webkit-filter: contrast(10);
+    filter: contrast(10);
+    margin-bottom: 10px;
+}
+
+a
+{
+    transition: 0.5s;
+}
+
+a:hover
+{
+    color: red;
+    font-size: 1.15em;
+}
+
+.nom
+{
+    margin:auto;  
+    background: linear-gradient(to right, deeppink, chartreuse, deeppink, chartreuse, deeppink, chartreuse, deeppink);
 }

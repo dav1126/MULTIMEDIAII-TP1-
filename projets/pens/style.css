@@ -1,0 +1,40 @@
+@import url("../../common/css/common_style.css");
+@import url("../../common/css/normalize.min.css");
+
+h1
+{
+    color:yellow;
+    font-family: none;
+}
+
+p
+{
+    color: yellow;
+}
+
+flexBox
+{
+  display: flex;
+  padding: 30px;
+  background: #ffcc00;
+  border-radius: 20px;
+  justify-content: space-around;
+  align-items:center;
+  flex-wrap: wrap;
+  min-width: 450px;
+}
+
+.embedClass
+{
+   width: 49%;
+   min-width: 400px;
+}
+
+body
+{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+

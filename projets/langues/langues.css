@@ -1,0 +1,232 @@
+@import url("../../common/css/common_style.css");
+@import url("../../common/css/normalize.min.css");
+h1
+{
+    color:red;
+}
+
+p
+{
+    color:yellow;
+}
+
+#nombres > p:first-of-type
+{
+    font-family: "Damion";
+    font-size:1.2em;
+    color:magenta;
+    text-indent: 10%;
+    margin-top: -15px;
+}
+
+main
+{
+    counter-reset: section;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+article::before
+{
+    counter-increment: section;
+    content: counter(section);
+    color:yellow;
+    font-size: 2.5em;
+}
+
+article
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left:10px;
+    flex: 1;
+    padding: 10px;
+}
+
+article:nth-child(5)
+{
+    order: 3;
+}
+
+article:nth-child(3)
+{
+    order: 5;
+}
+
+article:nth-child(1)
+{
+    order: 1;
+}
+
+article:nth-child(2)
+{
+    order: 2;
+}
+
+article:nth-child(4)
+{
+    order: 4;
+}
+
+article:nth-child(6)
+{
+    order: 6;
+}
+
+article:nth-child(7)
+{
+    order: 7;
+}
+
+article:nth-child(8)
+{
+    order: 8;
+}
+
+article:nth-child(1),
+article:nth-child(3),
+article:nth-child(7)
+{
+     background: linear-gradient(#A00000, red);
+     box-shadow: inset 1px -1px 8px 0px  #ff5555;
+}
+
+article:nth-child(1) li:nth-child(even),
+article:nth-child(3) li:nth-child(even),
+article:nth-child(7) li:nth-child(even)
+{
+    background:#AA3333;
+    border-radius: 4px;
+    color:black;
+}
+
+article:nth-child(1) li:nth-child(odd),
+article:nth-child(3) li:nth-child(odd),
+article:nth-child(7) li:nth-child(odd)
+{
+    background:#770000;
+    border-radius: 4px;
+    color:black;
+}
+
+article:nth-child(2),
+article:nth-child(4)
+{
+   background: linear-gradient(green, lime);
+   box-shadow: inset 1px -1px 8px 0px  #00ff00;
+}
+
+article:nth-child(2) li:nth-child(even),
+article:nth-child(4) li:nth-child(even)
+{
+    background:lightgreen;
+    border-radius: 4px;
+    color:black;
+}
+
+article:nth-child(2) li:nth-child(odd),
+article:nth-child(4) li:nth-child(odd)
+{
+    background:darkgreen;
+    border-radius: 4px;
+    color:black;
+}
+
+article:nth-child(5)
+{
+   background: #000000;
+   color: darkblue;
+    box-shadow: inset 1px -1px 8px 0px  darkgray;
+}
+
+article:nth-child(5)
+{
+   background: #000000;
+   color: darkblue;
+}
+
+article:nth-child(6)
+{
+   background: linear-gradient(green, lime);
+   color: black;
+    box-shadow: inset 1px -1px 8px 0px  #00ff00;
+}
+
+
+article:nth-child(6) li span
+{
+    float:right;
+    color:gold;
+}
+
+li
+{
+    text-indent: 10px;
+}
+
+ol
+{
+    font-style:italic;
+    padding-left:0px;
+}
+
+li::first-letter
+{
+    text-transform: capitalize;
+}
+
+article:nth-child(8)
+{
+   background: black;
+   color: blue;
+    box-shadow: inset 1px -1px 8px 0px  darkgray;
+}
+
+article:nth-child(8) ol
+{
+   display: flex;
+   flex-direction: column;
+}
+
+li > div
+{
+    display: inline-flex;
+    justify-content: space-between;
+    min-width:160px;
+}
+
+li div span:nth-child(3)
+{
+    width: 20px;
+    text-align: right;
+}
+
+li div span:nth-child(1), li div span:nth-child(2)
+{
+    flex-grow: 1;
+}
+
+li div span:nth-child(1)
+{
+    color: gold;
+}
+
+li div span:nth-child(2)
+{
+    color: white;
+}
+
+li div span:nth-child(2)
+{
+    text-align:right;
+}
+
+
+
+

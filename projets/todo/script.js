@@ -27,6 +27,8 @@
             }
     }
     
+    manageButtonDisable();
+    
     function ajouterTacheTodo(inputText)
     {
         let article = document.createElement("article");
@@ -51,6 +53,9 @@
         article.querySelector("img").onclick = deleteArticle;
         article.querySelector("img").onkeypress = deleteArticleWithEnter; 
         article.querySelector(".text").onkeypress = getFocusOnInpuField;
+        checkbox.onkeypress = checkThatCheckBox;
+        checkbox.onclick = addToDoneList;
+        manageButtonDisable();
     }
     
     function ajouterTodo(todoTexte)
@@ -77,6 +82,19 @@
         article.querySelector("img").onclick = deleteArticle; 
         article.querySelector("img").onkeypress = deleteArticleWithEnter;
         article.querySelector(".text").onkeypress = getFocusOnInpuField;
+        checkbox.onkeypress = checkThatCheckBox;
+        checkbox.onclick = addToDoneList;
+        manageButtonDisable();
+    }
+    
+    function checkThatCheckBox(e)
+    {
+       if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '13')
+                {
+                    this.click();
+                }  
     }
     
     function getFocusOnInpuField(e)
@@ -95,15 +113,51 @@
             var keyCode = e.keyCode || e.which;
             if (keyCode == '13')
                 {
-                    this.parentNode.outerHTML="";  
+                    this.click();  
                 } 
     }
     
     function deleteArticle()
     {     
          this.parentNode.outerHTML="";
+         manageButtonsDisable();
     }
     
-//    function 
+    function manageButtonDisable()
+    {
+        allDoneButton.disabled = false;
+        deleteDoneButton.disabled = false;
+        
+        if (!todolist.hasChildNodes() && !donelist.hasChildNodes())
+         {
+             allDoneButton.disabled = true;
+             deleteDoneButton.disabled = true;
+         }     
+        else if (!todolist.hasChildNodes())
+        {
+//             allDoneButton.disabled = true;   corriger cette methode elle n'agit pas tj  comme il faut
+        }
+        else if (!donelist.hasChildNodes())
+        {
+            deleteDoneButton.disabled = true;
+        }
+    }
+    
+    function addToDoneList()
+    {
+      let article = this.parentNode;
+      let checkbox = this;    
+      article.outerHTML="";    
+      donelist.insertBefore(article, donelist.firstChild);
+      checkbox.focus();
+      checkbox.onclick = (function()
+      {
+          ajouterTodo(article.querySelector("div").innerText);
+          checkbox.parentNode.outerHTML="";
+          todolist.lastChild.querySelector("input").focus();
+      })
+      ; 
+      manageButtonDisable();
+    }
     
 }) ();

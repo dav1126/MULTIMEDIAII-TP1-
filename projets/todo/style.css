@@ -27,6 +27,7 @@
     max-width: 1400px;
     margin-top:25px;
     min-width: 200px;
+    margin-bottom: 50px;
 }
 
 h1, h2
@@ -129,7 +130,15 @@ article img:hover,article img:focus
     padding: 4px;
 }
 
-article .text:focus
+#donelist article .text:focus
+{
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    border: none;
+}
+
+#todolist article .text:focus
 {
     color: black;
     background-color: white;
@@ -141,5 +150,69 @@ img
 {
    width: 15px;
    height: 15px;
+}
+
+#donelist
+{
+    text-decoration: line-through;
+    color: red;
+    opacity: 0.5;
+}
+
+#donelist *
+{
+    color:white;
+}
+
+#todolist:empty::after
+{   
+    content: "Veuillez entrer une nouvelle tâche à faire svp!";
+    color: lawngreen;
+    font-style: italic;
+    font-family: serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons
+{
+    position:fixed;
+    bottom: 0;
+    display: flex;
+    width: 100vw;
+    background-color:white;
+    opacity: 0.7;
+    transition: 1s;
+}
+
+.buttons button
+{
+    flex: 1;
+    mix-blend-mode: difference;
+    color: aqua;
+    transition: 1s;
+}
+
+.buttons img, .buttons input
+{
+    margin-right: 5px;
+    
+}
+
+.buttons:hover
+{
+    opacity: 1;
+}
+
+.buttons button:hover, .buttons button:focus
+{
+    text-shadow: 0px 0px 20px #00ffff;
+    color: #0044ff;
+}
+
+.buttons button:disabled
+{
+    display:none;
 }
 

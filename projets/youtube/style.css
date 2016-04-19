@@ -8,7 +8,7 @@
         flex-direction: row;
     }
     
-    mainDiv
+    .mainDiv
     {
         flex: 1;
         margin: 10px;
@@ -65,7 +65,7 @@ body
 }
 
 
-mainDiv p
+.mainDiv p
 {
     margin: 0;
     text-align: center;
@@ -90,7 +90,7 @@ mainDiv p
     height:100%;
 }
 
-maindiv
+.mainDiv
 {
     margin-top: 40px;
     max-width:  none;
@@ -99,5 +99,10 @@ maindiv
     border-top-right-radius: 50px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+iframe
+{
+    border: none;
 }
 

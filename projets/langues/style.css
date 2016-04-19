@@ -7,7 +7,12 @@ h1
     font-family: none;
 }
 
-mainDiv
+.mainDiv
 {
     max-width: 90%;
+}
+
+iframe
+{
+    width="100%";
 }

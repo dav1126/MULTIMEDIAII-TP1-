@@ -19,7 +19,7 @@ h1, h2
     margin: 10px;
 }
 
-maindiv
+.mainDiv
 {
     margin-top: 20px;
     max-width:  650px;
@@ -34,6 +34,8 @@ maindiv
     animation-name: borderMain;
     animation-duration: 2s;
     animation-iteration-count:  infinite;
+    position: relative;
+    overflow: hidden;
 }
 
 a:link
@@ -51,9 +53,13 @@ a:hover
     color: red;
 }
 
-fixedLink
+.fixedLink
 {
     position:fixed;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 0px;
     right: 0px;
     padding: 15px;
@@ -67,7 +73,7 @@ fixedLink
     z-index:1;
 }
 
-fixedLink:hover
+.fixedLink:hover
 {
     opacity: 1.0;
 }

@@ -5,29 +5,24 @@
 	<meta charset="utf-8" />
     <title>Multimedia II - TP1 - David St-Pierre!</title>
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-    </style>
+    <script src="../../common/js/favicons.js"></script>
 </head>
 
 <body>
-    <maindiv>
+    <div class="mainDiv">
         <img src="../../img/david.jpg" alt="David" height="42" width="42">
         <div class="nom">
             <h1>David St-Pierre</h1>
         </div>
         <br/>
-        <span class="underline"><h2>Bienvenue sur mon site web</h2></span>
+        <div class="underline"><h2>Bienvenue sur mon site web</h2></div>
         <p>Je vous invites à le visiter. Les rubriques disponibles, en ordre alphabétique, sont les suivantes:</p>
         <ul>
-            <li><a href="../langues/index.html">Langues</a></li>
-            <li><a href="../pens/index.html">Pens</a></li>
-            <li><a href="../youtube/">Youtube</a></li>
         </ul>
-        <p>
-            <audio src="../../audio/bienvenue.mp3" autoplay></audio>
-        </p>
-    </maindiv>
+        <label id="sourdineLabel"><input type="checkbox" id="sourdineCheckbox"> Sourdine</label>
+        <audio id="audioMsg" src="../../audio/bienvenue.mp3" autoplay></audio>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

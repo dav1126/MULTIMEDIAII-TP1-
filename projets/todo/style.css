@@ -1,18 +1,62 @@
 @import url("../../common/css/common_style.css");
 @import url("../../common/css/normalize.min.css");
+
 @media (max-width: 361px)
 {    
     header input
     {
-        width: 90%;
-        display: block;
-        margin: auto;
+        margin-left: -20px;        
     }
     
     .hide-on-small-screen
     {
-        display: none;
+        font-size: 0;
+
     }    
+}
+
+@media (max-height: 480px)
+{     
+    body
+    {
+        margin-top: -100px;
+    }
+    
+    .fixedLink
+    {
+        margin-right: -135px;
+        margin-top: -20px;
+        background: lime;
+        color: lime;
+    }
+    
+    .fixedLink:hover, .fixedLink:focus
+    {
+        background: radial-gradient(gray, black);
+        margin-right: 0;
+        margin-top: 0;
+        opacity: 1.0; 
+    }
+    
+    a:link
+    {
+        color:aqua;
+    }
+
+    a:visited
+    {
+        color:lime;
+    }
+
+    a:hover,  a:focus
+    {
+        color: red;
+    }
+}
+
+body
+{
+    transition :2s;
 }
 
 .mainContainer
@@ -196,8 +240,7 @@ img
 
 .buttons img, .buttons input
 {
-    margin-right: 5px;
-    
+    margin-right: 5px;  
 }
 
 .buttons:hover
@@ -214,5 +257,20 @@ img
 .buttons button:disabled
 {
     display:none;
+}
+
+.fixedLink
+{
+   transition: 2s; 
+}
+
+.hide-on-small-screen
+{
+    transition: 1.5s;
+}
+
+header input
+{
+    transition: 2s;
 }
 

@@ -14,7 +14,7 @@
         <div class="mainDiv">
             <header>
                 <span class="hide-on-small-screen">Todo</span>
-                <input type="text" id="input" placeholder = "Saisir tâche ici..." autofocus/>
+                <input type="text" id="input" placeholder = "Saisir tâche ici..." autofocus tabindex="0"/>
             </header>
             <div class="alltasks">
                 <div id="todolist"></div>
@@ -22,10 +22,11 @@
             </div>    
         </div>
     </div>
-    <a href="../home/index.html"></a>
-    <div class="fixedLink">Retour à l'accueil</div>
+    <a href="../home/index.html" class="fixedLink">
+    <div>Retour à l'accueil</div>
+    </a>
     <div class="buttons">
-        <button id="allDoneButton"><input type="checkbox" id="allDoneCheckbox"> Marquer toutes les tâches comme complétées</button>
+        <button id="allDoneButton"><img src="../../img/checkbox.png" id="allDoneCheckbox"> Marquer toutes les tâches comme complétées</button>
         <button id="deleteDoneButton"><img src="../../img/delete.png" alt="deleteDone">Effacer les tâches complétées</button>
     </div>
 <script src="script.js"></script>

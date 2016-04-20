@@ -1,17 +1,30 @@
 (function() 
 {
     "use strict";
-    var articles = 
-    [
-        "Laver la vaiselle",
-        "Passer l'aspirateur",
-        "Finir le TP de multimedia"
-    ];
     
-    
-    for (let elem of articles)
+    var articlesTodo;
+    var articlesDone;
+    if (localStorage.todolist && localStorage.todolist !== "undefined")
     {
-      ajouterTodo(elem); 
+        articlesTodo = JSON.parse(localStorage.todolist);
+        for (let elem of articlesTodo)
+        {
+          ajouterTodo(elem); 
+        }
+    }
+    if (localStorage.donelist && localStorage.donelist !== "undefined")
+    {
+        articlesDone = JSON.parse(localStorage.donelist);
+        for (let elem of articlesDone)
+        {
+          let checkbox = ajouterTodo(elem);
+          checkbox.click();
+        }
+    }
+    
+    if (localStorage.inputText && localStorage.inputText !== "undefined")
+    {
+        input.value = localStorage.inputText;
     }
     
     let inputField = document.querySelector("input");
@@ -24,10 +37,14 @@
               if (inputField.value.trim() !== "")
                 ajouterTacheTodo(inputField.value.trim());
                 inputField.value = "";
+                localStorage.inputText = undefined;
             }
     }
     
     manageButtonDisable();
+    allDoneButton.onclick = makeAllTasksDone;
+    deleteDoneButton.onclick = deleteDoneTasks;
+    input.onblur = saveInputText;        
     
     function ajouterTacheTodo(inputText)
     {
@@ -38,7 +55,7 @@
         let division = document.createElement("div");
         division.setAttribute("class", "text");
         division.setAttribute("tabIndex", "0");
-        division.setAttribute("contenteditable", "contenteditable");
+        division.setAttribute("contenteditable", "true");
         let texte = document.createTextNode(inputText);
         division.appendChild(texte);
         let image = document.createElement("img");
@@ -55,7 +72,9 @@
         article.querySelector(".text").onkeypress = getFocusOnInpuField;
         checkbox.onkeypress = checkThatCheckBox;
         checkbox.onclick = addToDoneList;
+        article.querySelector("div").onkeypress = focusNextElement;
         manageButtonDisable();
+        saveUpdatedTasks();
     }
     
     function ajouterTodo(todoTexte)
@@ -84,7 +103,9 @@
         article.querySelector(".text").onkeypress = getFocusOnInpuField;
         checkbox.onkeypress = checkThatCheckBox;
         checkbox.onclick = addToDoneList;
+        article.querySelector("div").onkeypress = focusNextElement;
         manageButtonDisable();
+        return checkbox;
     }
     
     function checkThatCheckBox(e)
@@ -111,16 +132,18 @@
     {
         if (!e) e = window.event;
             var keyCode = e.keyCode || e.which;
-            if (keyCode == '13')
+            if (keyCode == '13' || keyCode == '32')
                 {
-                    this.click();  
+                    focusNextOrPreviousDeleteImg(this);
+                    this.click();
                 } 
     }
     
     function deleteArticle()
     {     
          this.parentNode.outerHTML="";
-         manageButtonsDisable();
+         manageButtonDisable();
+         saveUpdatedTasks();
     }
     
     function manageButtonDisable()
@@ -135,7 +158,7 @@
          }     
         else if (!todolist.hasChildNodes())
         {
-//             allDoneButton.disabled = true;   corriger cette methode elle n'agit pas tj  comme il faut
+             allDoneButton.disabled = true;
         }
         else if (!donelist.hasChildNodes())
         {
@@ -155,9 +178,98 @@
           ajouterTodo(article.querySelector("div").innerText);
           checkbox.parentNode.outerHTML="";
           todolist.lastChild.querySelector("input").focus();
+          manageButtonDisable();
+          saveUpdatedTasks();
       })
       ; 
       manageButtonDisable();
+      saveUpdatedTasks();
     }
+    
+    function makeAllTasksDone()
+    {
+        while (todolist.hasChildNodes())
+        {
+            todolist.firstChild.querySelector("input").click();
+        }
+    }
+    
+    function deleteDoneTasks()
+    {
+       while (donelist.hasChildNodes())
+        {
+            donelist.firstChild.querySelector("img").click();
+        } 
+    }
+    
+    function saveUpdatedTasks()
+    {
+        articlesTodo = [];
+        articlesDone = [];
+        
+        let todoArticles = todolist.querySelectorAll("article");
+        
+        for (let i=0; i<todoArticles.length; i++)
+        {
+            let task = todoArticles[i].querySelector(".text").innerText;
+            articlesTodo.push(task);
+        }
+        
+        let doneArticles = donelist.querySelectorAll("article");
+        for (let i=0; i<doneArticles.length; i++)
+        {
+            let task = doneArticles[i].querySelector(".text").innerText;
+            articlesDone.unshift(task);
+        }
+ 
+        localStorage.todolist = JSON.stringify(articlesTodo);
+        localStorage.donelist = JSON.stringify(articlesDone);
+    }
+    
+    function saveInputText()
+    {
+        localStorage.inputText = input.value;
+    }
+    
+    function focusNextElement(e)
+    {
+        if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '13')
+            {
+                e.preventDefault();
+                if (this.parentNode.nextElementSibling !== null)
+                    this.parentNode.nextElementSibling.childNodes[1].focus();
+                
+                else if (this.parentNode.parentNode.nextElementSibling !== null)
+                    {
+                       if (this.parentNode.parentNode.nextElementSibling.firstChild != null)        this.parentNode.parentNode.nextElementSibling.firstChild.childNodes[1].focus();
+                    }
+                
+                else
+                    input.focus();
+            }   
+    }
+    
+    function focusNextOrPreviousDeleteImg(element)
+    {
+       if (element.parentNode.nextElementSibling !== null)
+            element.parentNode.nextElementSibling.childNodes[2].focus();
+                
+        else if (element.parentNode.parentNode.nextElementSibling !== null && element.parentNode.parentNode.nextElementSibling.firstChild != null)
+        {
+          element.parentNode.parentNode.nextElementSibling.firstChild.childNodes[2].focus();
+        }
+        else if (element.parentNode.previousElementSibling !== null)
+            element.parentNode.previousElementSibling.childNodes[2].focus();
+        else if (element.parentNode.parentNode.previousElementSibling != null && element.parentNode.parentNode.previousElementSibling.getAttribute("id") == "todolist" && element.parentNode.parentNode.previousElementSibling.firstChild != null)
+        {
+          element.parentNode.parentNode.previousElementSibling.lastChild.childNodes[2].focus();
+        }
+        else
+            input.focus(); 
+    }
+    
+    document.querySelector("a").focus();
     
 }) ();

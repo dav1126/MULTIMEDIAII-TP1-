@@ -73,6 +73,7 @@
         checkbox.onkeypress = checkThatCheckBox;
         checkbox.onclick = addToDoneList;
         article.querySelector("div").onkeypress = focusNextElement;
+        article.querySelector(".text").onblur = saveUpdatedTasks;
         manageButtonDisable();
         saveUpdatedTasks();
     }
@@ -104,6 +105,7 @@
         checkbox.onkeypress = checkThatCheckBox;
         checkbox.onclick = addToDoneList;
         article.querySelector("div").onkeypress = focusNextElement;
+        article.querySelector(".text").onblur = saveUpdatedTasks;
         manageButtonDisable();
         return checkbox;
     }

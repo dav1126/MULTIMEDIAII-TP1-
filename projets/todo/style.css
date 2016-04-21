@@ -133,9 +133,11 @@ article
 {
   display: flex;
   align-items: center;
+  justify-content:center;    
   margin-bottom: 10px;
   margin-left: 20px;
-  min-width: 30em;    
+  min-width: 30em;
+  max-width: 100%;    
 }
 
 article *
@@ -167,7 +169,7 @@ article img:hover,article img:focus
 {
     box-sizing: border-box;
     flex: 1;
-    max-width: 30%;
+    max-width: 80%;
     margin-left: 10px;
     margin-right: 10px;
     line-height: 15px;
@@ -272,5 +274,11 @@ img
 header input
 {
     transition: 2s;
+}
+
+.alltasks, #todolist
+{
+    margin: auto;
+    max-width: 100%;
 }
 

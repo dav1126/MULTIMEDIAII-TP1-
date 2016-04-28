@@ -4,6 +4,7 @@
     
     var articlesTodo;
     var articlesDone;
+    var template = document.querySelector("template").content.firstElementChild;
     if (localStorage.todolist && localStorage.todolist !== "undefined")
     {
         articlesTodo = JSON.parse(localStorage.todolist);
@@ -48,27 +49,13 @@
     
     function ajouterTacheTodo(inputText)
     {
-        let article = document.createElement("article");
-        let checkbox = document.createElement("input");
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("class", "checkbox");
-        let division = document.createElement("div");
-        division.setAttribute("class", "text");
-        division.setAttribute("tabIndex", "0");
-        division.setAttribute("contenteditable", "true");
-        let texte = document.createTextNode(inputText);
-        division.appendChild(texte);
-        let image = document.createElement("img");
-        image.setAttribute("src", "../../img/delete.png");
-        image.setAttribute("alt", "delete");
-        image.setAttribute("tabIndex", "0");
-        article.appendChild(checkbox);
-        article.appendChild(division);
-        article.appendChild(image);
+        var article = template.cloneNode(true);
+        article.querySelector("div").textContent = inputText;
+        let checkbox = article.querySelector("input");
         todolist.insertBefore(article, todolist.firstChild);
         
         article.querySelector("img").onclick = deleteArticle;
-        article.querySelector("img").onkeypress = deleteArticleWithEnter; 
+        article.querySelector("img").onkeypress = deleteArticleWithEnter;
         article.querySelector(".text").onkeypress = getFocusOnInpuField;
         checkbox.onkeypress = checkThatCheckBox;
         checkbox.onclick = addToDoneList;
@@ -80,25 +67,11 @@
     
     function ajouterTodo(todoTexte)
     {
-        let article = document.createElement("article");
-        let checkbox = document.createElement("input");
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("class", "checkbox");
-        let division = document.createElement("div");
-        division.setAttribute("class", "text");
-        division.setAttribute("tabIndex", "0");
-        division.setAttribute("contenteditable", "true");
-        let texte = document.createTextNode(todoTexte);
-        division.appendChild(texte);
-        let image = document.createElement("img");
-        image.setAttribute("src", "../../img/delete.png");
-        image.setAttribute("alt", "delete");
-        image.setAttribute("tabIndex", "0");
-        article.appendChild(checkbox);
-        article.appendChild(division);
-        article.appendChild(image);
+        let article = template.cloneNode(true);
+        article.querySelector("div").textContent=todoTexte;
+        let checkbox = article.querySelector("input");
         todolist.appendChild(article);
-        
+
         article.querySelector("img").onclick = deleteArticle; 
         article.querySelector("img").onkeypress = deleteArticleWithEnter;
         article.querySelector(".text").onkeypress = getFocusOnInpuField;

@@ -1,33 +1,46 @@
 (function() 
 {
     "use strict";
-    
-    var projets = 
-        [
-            {
-                nom : "Langues",
-                dir : "langues"
-            },
-            {
-                nom : "Pens",
-                dir : "pens"
-            },
-            {
-                nom : "Youtube",
-                dir : "youtube"
-            },
-            {
-                nom : "Tutoriel JS",
-                dir : "tutorielJS"
-            },
-            {
-                nom: "Todo",
-                dir: "todo"
-            }
-        ];
-    
-    initMenu();
-    
+    //Generation du menu des projets avec un template HandleBars
+        var templateScript = $("#template-projets").html();
+        var template = Handlebars.compile(templateScript);
+        var context =
+        {
+            projets: [
+                {
+                    nom: "Langues",
+                    dir: "langues",
+                    description: "Pratique de l'utilisation des sélecteurs et de la mise en page avec CSS3",
+                    sujets: ["CSS3", "HTML5", "Sélecteurs"]
+                },
+                {
+                    nom: "Pens",
+                    dir: "pens",
+                    description: "Exercices que j'ai fait avec CodePen",
+                    sujets: ["CSS3", "HTML5", "CodePen"]
+                },
+                {
+                    nom: "Youtube",
+                    dir: "youtube"
+                },
+                {
+                    nom: "Tutoriel JS",
+                    dir: "tutorielJS"
+                },
+                {
+                    nom: "Todo",
+                    dir: "todo",
+                    description: "Liste dynamique de choses à faire",
+                    sujets: ["CSS3", "HTML5", "JavaScript"]
+                }
+            ]
+        }
+        var compiledHtml = template(context);
+        $(document).find("ul").append(compiledHtml);
+
+    //Generation des description des projets avec un template HandleBars
+        
+
     sourdineLabel.title = "Activer sourdine";
     
     if (localStorage.sourdineCheck === "oui")
@@ -54,20 +67,4 @@
             localStorage.sourdineCheck = "non";
         }
     }
-    
-    function initMenu()
-    {
-        let menuDiv = document.querySelector("ul");
-        for (var elem of projets)
-            {
-                let liste = document.createElement("li");
-                let link = document.createElement("a");
-                link.setAttribute("href", "../" + elem['dir'] + "/index.html");
-                let text = document.createTextNode(elem['nom']);
-                liste.appendChild(link);
-                link.appendChild(text);
-                menuDiv.appendChild(liste);
-            }
-    }
-    
 }) ();

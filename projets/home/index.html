@@ -6,6 +6,8 @@
     <title>Multimedia II - TP1 - David St-Pierre!</title>
     <link rel="stylesheet" href="style.css">
     <script src="../../common/js/favicons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 </head>
 
 <body>
@@ -22,6 +24,23 @@
         <label id="sourdineLabel"><input type="checkbox" id="sourdineCheckbox"> Sourdine</label>
         <audio id="audioMsg" src="../../audio/bienvenue.mp3" autoplay></audio>
     </div>
+    <script id="template-projets" type="text/x-handlebars-template">
+        {{#each projets}}
+            <li><a href="../{{dir}}/index.html">{{nom}}</a>
+            {{#if description}}
+                <div>{{description}}
+                {{#if sujets}}
+                    <br><br>
+                    <span>Sujets:</span>
+                    {{#each sujets}}
+                    <span class="sujet">{{this}}</span>
+                    {{/each}}
+                {{/if}}
+                </div>
+            {{/if}}
+            </li>
+        {{/each}}
+    </script>
     <script src="script.js"></script>
 </body>
 

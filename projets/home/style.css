@@ -119,3 +119,18 @@ li span{
 .sujet:nth-child(odd) {
     color: deeppink;
 }
+
+.skin-red
+{
+    color:red;
+}
+
+.skin-orange
+{
+    color:orange;
+}
+
+.skin-camo
+{
+    color:khaki;
+}

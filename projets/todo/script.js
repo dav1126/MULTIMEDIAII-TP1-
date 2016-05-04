@@ -5,6 +5,7 @@
     var articlesTodo;
     var articlesDone;
     var template = document.querySelector("template").content.firstElementChild;
+
     if (localStorage.todolist && localStorage.todolist !== "undefined")
     {
         articlesTodo = JSON.parse(localStorage.todolist);
@@ -41,12 +42,92 @@
                 localStorage.inputText = undefined;
             }
     }
+
+    var select = document.querySelector("select");
+    select.onchange = changeSkin;
     
     manageButtonDisable();
     allDoneButton.onclick = makeAllTasksDone;
     deleteDoneButton.onclick = deleteDoneTasks;
-    input.onblur = saveInputText;        
-    
+    input.onblur = saveInputText;
+    loadSkin();
+
+    var queryString = location.search;
+
+    var keyAndValue = parseQueryString(queryString);
+
+    if (keyAndValue.skin == "blue-on-orange")
+    {
+        select.selectedIndex = 1;
+        changeSkin();
+    }
+    else if (keyAndValue.skin == "camo" || keyAndValue.skin == "camouflage")
+    {
+        select.selectedIndex = 2;
+        changeSkin();
+    }
+    else if (keyAndValue.skin !== undefined)
+    {
+        select.selectedIndex = 0;
+        changeSkin();
+    }
+
+    function loadSkin()
+    {
+        if (localStorage.skin == "blue-on-orange"){
+            document.querySelector(":root").classList.remove("camo");
+            document.querySelector(":root").classList.add("blue-on-orange");
+            select.selectedIndex = 1;
+        }
+        else if (localStorage.skin == "camo")
+        {
+            document.querySelector(":root").classList.add("camo");
+            document.querySelector(":root").classList.remove("blue-on-orange");
+            select.selectedIndex = 2;
+        }
+        else
+        {
+            document.querySelector(":root").classList.remove("blue-on-orange");
+            document.querySelector(":root").classList.remove("camo");
+            select.selectedIndex = 0;
+        }
+    }
+
+    function parseQueryString(qstr)
+    {
+        var query = {};
+        var parameters = qstr.substr(1).split('&');
+        for (var i=0; i<parameters.length; i++)
+        {
+            var keyAndValue = parameters[i].split('=');
+            var key = decodeURIComponent(keyAndValue[0]);
+            var value = decodeURIComponent(keyAndValue[1] || '');
+            query[key] = value;
+        }
+        return query;
+    }
+
+    function changeSkin()
+    {
+        if (select.selectedIndex == 0){
+            document.querySelector(":root").classList.remove("blue-on-orange");
+            document.querySelector(":root").classList.remove("camo");
+            localStorage.skin = "red-on-black";
+        }
+        else if (select.selectedIndex == 1)
+        {
+            document.querySelector(":root").classList.remove("camo");
+            document.querySelector(":root").classList.add("blue-on-orange");
+            localStorage.skin = "blue-on-orange";
+        }
+        else
+        {
+            document.querySelector(":root").classList.add("camo");
+            document.querySelector(":root").classList.remove("blue-on-orange");
+            localStorage.skin = "camo";
+        }
+    }
+
     function ajouterTacheTodo(inputText)
     {
         var article = template.cloneNode(true);

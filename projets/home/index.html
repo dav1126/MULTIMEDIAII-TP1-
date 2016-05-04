@@ -26,7 +26,12 @@
     </div>
     <script id="template-projets" type="text/x-handlebars-template">
         {{#each projets}}
-            <li><a href="../{{dir}}/index.html">{{nom}}</a>
+            <li><a href="../{{dir}}/index.html{{#if parametre}}?{{parametre}}{{/if}}">
+                {{nom}}
+                {{#if skin}}
+                    (<span class="skin">{{skin}})</span>
+                {{/if}}
+                </a>
             {{#if description}}
                 <div>{{description}}
                 {{#if sujets}}

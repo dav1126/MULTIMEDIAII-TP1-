@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
     <title>Multimedia II - TP1 - David St-Pierre!</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="app.min.css">
     <script src="../../common/js/favicons.js"></script>
 </head>
 
@@ -22,9 +22,21 @@
             </div>    
         </div>
     </div>
-    <a href="../home/index.html" class="fixedLink">
-    <div>Retour à l'accueil</div>
-    </a>
+    <div>
+        <div class="fixedLink">
+            <a href="../home/index.html">
+            <div>Retour à l'accueil</div>
+            </a>
+            <div>
+                <span>Skin:</span>
+                <select id="selectSkin">
+                    <option value="" selected>Red on Black</option>
+                    <option value="blue-on-orange">Blue on Orange</option>
+                    <option value="camo">Camouflage</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="buttons">
         <button id="allDoneButton"><img src="../../img/checkbox.png" id="allDoneCheckbox" alt="allDoneImg"> Marquer toutes les tâches comme complétées</button>
         <button id="deleteDoneButton"><img src="../../img/delete.png" alt="deleteDone">Effacer les tâches complétées</button>

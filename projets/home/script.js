@@ -29,7 +29,32 @@
                 },
                 {
                     nom: "Todo",
+                    skin: "",
                     dir: "todo",
+                    description: "Liste dynamique de choses à faire",
+                    sujets: ["CSS3", "HTML5", "JavaScript"]
+                },
+                {
+                    nom: "Todo",
+                    skin: "classique",
+                    dir: "todo",
+                    parametre: "skin=red-on-black",
+                    description: "Liste dynamique de choses à faire",
+                    sujets: ["CSS3", "HTML5", "JavaScript"]
+                },
+                {
+                    nom: "Todo",
+                    skin: "orange",
+                    dir: "todo",
+                    parametre: "skin=blue-on-orange",
+                    description: "Liste dynamique de choses à faire",
+                    sujets: ["CSS3", "HTML5", "JavaScript"]
+                },
+                {
+                    nom: "Todo",
+                    skin: "camouflage",
+                    dir: "todo",
+                    parametre: "skin=camo",
                     description: "Liste dynamique de choses à faire",
                     sujets: ["CSS3", "HTML5", "JavaScript"]
                 }
@@ -37,8 +62,12 @@
         }
         var compiledHtml = template(context);
         $(document).find("ul").append(compiledHtml);
-
-    //Generation des description des projets avec un template HandleBars
+    
+   var skinSpans = document.querySelectorAll(".skin");
+    skinSpans[0].classList.add("skin-red");
+    skinSpans[1].classList.add("skin-orange");
+    skinSpans[2].classList.add("skin-camo");
+    
         
 
     sourdineLabel.title = "Activer sourdine";

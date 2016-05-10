@@ -1,0 +1,85 @@
+[
+  {
+    "nom": "Langues",
+    "dir": "langues",
+    "description": "Pratique de l'utilisation des sélecteurs et de la mise en page avec CSS3",
+    "sujets": [
+      "CSS3",
+      "HTML5",
+      "Sélecteurs"
+    ]
+  },
+  {
+    "nom": "Pens",
+    "dir": "pens",
+    "description": "Exercices que j'ai fait avec CodePen",
+    "sujets": [
+      "CSS3",
+      "HTML5",
+      "CodePen"
+    ]
+  },
+  {
+    "nom": "Youtube",
+    "dir": "youtube"
+  },
+  {
+    "nom": "Tutoriel JS",
+    "dir": "tutorielJS"
+  },
+  {
+    "nom": "Todo",
+    "skin": "",
+    "dir": "todo",
+    "description": "Liste dynamique de choses à faire",
+    "sujets": [
+      "CSS3",
+      "HTML5",
+      "JavaScript"
+    ]
+  },
+  {
+    "nom": "Todo",
+    "skin": "classique",
+    "dir": "todo",
+    "parametre": "skin=red-on-black",
+    "description": "Liste dynamique de choses à faire",
+    "sujets": [
+      "CSS3",
+      "HTML5",
+      "JavaScript"
+    ]
+  },
+  {
+    "nom": "Todo",
+    "skin": "orange",
+    "dir": "todo",
+    "parametre": "skin=blue-on-orange",
+    "description": "Liste dynamique de choses à faire",
+    "sujets": [
+      "CSS3",
+      "HTML5",
+      "JavaScript"
+    ]
+  },
+  {
+    "nom": "Todo",
+    "skin": "camouflage",
+    "dir": "todo",
+    "parametre": "skin=camo",
+    "description": "Liste dynamique de choses à faire",
+    "sujets": [
+      "CSS3",
+      "HTML5",
+      "JavaScript"
+    ]
+  },
+  {
+    "nom": "Tour of Heroes",
+    "dir": "tourOfHeroes",
+    "description": "Tutoriel Angular2",
+    "sujets": [
+      "Angular2"
+    ]
+  }
+]

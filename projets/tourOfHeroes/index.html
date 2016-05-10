@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>document.write(' <base href="'+window.location.pathname+'">')</script>
+    <title>Angular 2 QuickStart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+    <script src="https://npmcdn.com/angular2@2.0.0-beta.9/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.16/angular2-polyfills.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.16/Rx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.16/angular2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.16/router.min.js"></script>
+
+    <!--<script src="node_modules/es6-shim/es6-shim.min.js"></script>-->
+    <!--<script src="node_modules/systemjs/dist/system-polyfills.js"></script>-->
+    <!--<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>-->
+
+    <!--<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>-->
+    <!--<script src="node_modules/systemjs/dist/system.src.js"></script>-->
+    <!--<script src="node_modules/rxjs/bundles/Rx.js"></script>-->
+    <!--<script src="node_modules/angular2/bundles/angular2.dev.js"></script>-->
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/main')
+                .then(null, console.error.bind(console));
+    </script>
+    <!--<script src="node_modules/angular2/bundles/router.dev.js"></script>-->
+</head>
+
+<!-- 3. Display the application -->
+
+
+<body>
+<my-app>Loading...</my-app>
+</body>
+</html>

@@ -36,9 +36,9 @@ article::before
 
 article
 {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     min-width: 300px;
     border-radius: 20px;
@@ -47,6 +47,7 @@ article
     margin-left:10px;
     flex: 1;
     padding: 10px;
+    position: relative;
 }
 
 article:nth-child(5)
@@ -227,6 +228,10 @@ li div span:nth-child(2)
     text-align:right;
 }
 
+section
+{
+    padding: 1px 0;
+}
 
 
 

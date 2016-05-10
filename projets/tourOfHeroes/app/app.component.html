@@ -1,0 +1,10 @@
+<div class="titleDiv">
+<h1>{{title}}</h1>
+    <nav>
+        <a [routerLink]="['Dashboard']">Dashboard</a>
+        <a [routerLink]="['Heroes']">Heroes</a>
+        <a [routerLink]="['New']">New</a>
+    </nav>
+</div>
+<router-outlet></router-outlet>
+<my-heroes></my-heroes>

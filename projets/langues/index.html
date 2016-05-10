@@ -6,14 +6,17 @@
     <title>Multimedia II - TP1 - David St-Pierre!</title>
     <link rel="stylesheet" href="style.css">
     <script src="../../common/js/favicons.js"></script>
-    <style>
-    </style>
+    <script
+            src="https://code.jquery.com/jquery-2.2.3.min.js"
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+            crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
     <h1>Les Langues</h1>
     <div class="mainDiv">
-        <iframe src="langues.html" onload="this.style.height=this.contentDocument.body.scrollHeight + 200 + 'px';">
+        <iframe src="langues.html">
         <p>
         Impossible de charger <a href="langues.html">cette page web</a>et de la mettre dans un iframe.
         </p>
@@ -22,8 +25,11 @@
     <div class="fixedLink">
         <a href="../home/index.html">Retour à l'accueil
         </a>
+        <button class="button">Basculer iframe</button>
+        <button class="button">Basculer paragraphes</button>
+        <button class="button">Basculer boutons</button>
     </div>
+<script src="index.js"></script>
 </body>
-
 </html>
 

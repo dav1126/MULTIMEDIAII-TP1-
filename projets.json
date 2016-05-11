@@ -1,5 +1,10 @@
 [
   {
+    "nom": "GitHub",
+    "dir": "github",
+    "description": "Mon projet de site web publié sur GitHub"
+  },
+  {
     "nom": "Langues",
     "dir": "langues",
     "description": "Pratique de l'utilisation des sélecteurs et de la mise en page avec CSS3",
